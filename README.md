@@ -45,7 +45,7 @@ The architecture consists of:
 * **Bottleneck:** At 10x traffic, high-frequency table polling on `status` and `created_at` sorting can create row-lock contention in MySQL.
 * **Mitigation Strategy:** Transitioning high-throughput event notification queues to an in-memory message broker (such as Redis Pub/Sub or Redis Streams) while retaining TiDB Cloud for persistent state and audit logs.
 
----
+--- 
 
 ## Local Setup & Installation
 
