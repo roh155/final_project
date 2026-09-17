@@ -13,4 +13,4 @@ A minimal, production-ready asynchronous job execution system built with Node.js
 1. **State Tracking:** When a worker claims a task, it sets `status = 'processing'` and logs the execution timestamp in `locked_at`.
 2. **Stale Lock Recovery:** If the worker crashes mid-task, the job remains in `processing`. The polling loop identifies orphaned tasks using a timeout check (`locked_at < NOW() - INTERVAL 5 MINUTE`) and safely re-claims them.
 3. **Poison-Pill & Crash Limits:** Every processing attempt increments `attempts`. If an unhandled crash or fatal error triggers repeatedly and exceeds `max_attempts` (3), the task permanently transitions to `status = 'failed'` rather than looping indefinitely.
-4. **Idempotency Safeguard:** Rerunning jobs produces the exact same outcome without duplicate side effects.
+4. **Idempotency Safeguard:** Rerunning jobs produces the exact same outcome without duplicate side effects. 
